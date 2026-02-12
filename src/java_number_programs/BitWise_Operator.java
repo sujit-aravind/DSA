@@ -24,7 +24,7 @@ public class BitWise_Operator {
 		System.out.print("enter second dight value : ");
 		int second = ur.nextInt();
 		ur.close();
-		
+			
 		BitWise_Operator.bitWise(first, second);
 		
 	}
