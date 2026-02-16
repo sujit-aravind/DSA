@@ -57,5 +57,4 @@ public class AddTwoNumbers {
 			result = result.next;
 		}
 	}
-
 }
