@@ -2,11 +2,8 @@ package DSA_LeetCode;
 
 public class ZigzagConversion {
 	public static void main(String[] args) {
-
 		String s = "PAYPALISHIRING";
-
 		System.out.println(ZigzagConversion.convert(s, 3));
-
 	}
 
 	public static String convert(String s, int numRows) {
