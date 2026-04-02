@@ -25,10 +25,15 @@ public class RemoveDuplicateInArray {
 
 				if (arr[i] == arr[j]) {
 					temp = arr[j];
-					arr[j] = arr[j + 1];
+
+					if (j + 1 < total)
+						arr[j] = arr[j + 1];
 					do {
-						arr[j + index] = arr[j + index];
-						index++;
+
+						if (j + index < total) {
+							arr[j + index] = arr[j + index];
+							index++;
+						}
 					} while (arr[j] == total);
 					arr[total] = temp;
 					--total;
