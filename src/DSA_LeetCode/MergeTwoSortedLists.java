@@ -2,35 +2,39 @@ package DSA_LeetCode;
 
 public class MergeTwoSortedLists {
 	public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-
-		ListNode node = new ListNode();
-
-		do {
-			if (list2.val > list1.val) {
-				node.next = list1;
-				list1 = list1.next;
-				node = node.next;
-			} else {
-				node.next = list2;
-				list2 = list2.next;
-				node = node.next;
-			}
-		} while ((list1.next != null) && (list2.next != null));
 		
-		if (list1.next != null) {
-			do {
-				node.next = list1;
+		if (list1 == null) return list2;
+		if (list2 == null) return list1;
+
+		ListNode head = new ListNode();
+		ListNode current = head;
+
+		while ((list1 != null) && (list2 != null)) {
+
+			if (list2.val > list1.val) {
+				current.next = list1;
 				list1 = list1.next;
-				node = node.next;
-			} while (list1.next != null);
-			
-		} else if (list2.next != null) {
-			do {
-				node.next = list2;
+				current = current.next;
+			} else {
+				current.next = list2;
 				list2 = list2.next;
-				node = node.next;
-			} while (list2.next != null);
+				current = current.next;
+			}
 		}
-		return node;
+
+		if (list1 != null) {
+			while (list1 != null) {
+				current.next = list1;
+				list1 = list1.next;
+				current = current.next;
+			}
+		} else if (list2 != null) {
+			while (list2 != null) {
+				current.next = list2;
+				list2 = list2.next;
+				current = current.next;
+			}
+		}
+		return head.next;
 	}
 }
