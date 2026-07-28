@@ -3,27 +3,45 @@ package DSA_LeetCode;
 class removeDuplicates {
 	public int removeDuplicates(int[] nums) {
 
-		String index;
-		int position = 0;
-		boolean status;
+		int position;
+		int index;
+
+//		1, 1, 2, 2, 3, 3, 4
 
 		for (int i = 0; i < nums.length; i++) {
 
-			if (i == 0) {
-				index = String.valueOf(i);
-				position = nums[i];
-			}
+			if (i + 1 < nums.length) {
 
-			if (i != 0) {
-
-				if (position == nums[i]) {
-
+				position = nums[i + 1];
+				index = i + 1;
+				
+				do {
+					if (nums[i] == position) {
+						if (index + 1 < nums.length) {
+							index++;
+							position = nums[index];
+						}
+					}
+				} while (nums[i] != position);
+				
+				if(nums[i+1] != position) {
+					nums[i] = position;
 				}
-
 			}
 		}
 		return 0;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
