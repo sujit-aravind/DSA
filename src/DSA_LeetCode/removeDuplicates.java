@@ -3,63 +3,29 @@ package DSA_LeetCode;
 class removeDuplicates {
 	public int removeDuplicates(int[] nums) {
 
-		int position;
-		int index;
+		if (nums.length == 0) {
+			return 0;
+		}
 
-//		1, 1, 2, 2, 3, 3, 4
+		int k = 1;
 
-		for (int i = 0; i < nums.length; i++) {
-
-			if (i + 1 < nums.length) {
-
-				position = nums[i + 1];
-				index = i + 1;
-				
-				do {
-					if (nums[i] == position) {
-						if (index + 1 < nums.length) {
-							index++;
-							position = nums[index];
-						}
-					}
-				} while (nums[i] != position);
-				
-				if(nums[i+1] != position) {
-					nums[i] = position;
-				}
+		for (int i = 1; i < nums.length; i++) {
+			if (nums[i] != nums[k - 1]) {
+				nums[k] = nums[i];
+				k++;
 			}
 		}
-		return 0;
+
+		return k;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	public static void main(String[] args) {
 
 		int[] nums = { 1, 1, 2, 2, 3, 3, 4 };
 
 		removeDuplicates remove = new removeDuplicates();
 		int k = remove.removeDuplicates(nums);
-		System.out.println("k = " + k);
-		System.out.print("Array: ");
-		for (int i = 0; i < nums.length; i++) {
+		for (int i = 0; i < nums[k]; i++) {
 			System.out.print(nums[i] + " ");
 		}
 	}
