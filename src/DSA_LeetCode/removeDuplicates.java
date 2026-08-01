@@ -21,11 +21,11 @@ class removeDuplicates {
 
 	public static void main(String[] args) {
 
-		int[] nums = { 1, 1, 2, 2, 3, 3, 4 };
+		int[] nums = { 1, 1, 2, 2, 3, 3, 4, 5};
 
 		removeDuplicates remove = new removeDuplicates();
 		int k = remove.removeDuplicates(nums);
-		for (int i = 0; i < nums[k]; i++) {
+		for (int i = 0; i < k; i++) {
 			System.out.print(nums[i] + " ");
 		}
 	}
