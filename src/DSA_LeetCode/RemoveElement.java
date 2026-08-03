@@ -14,19 +14,19 @@ public class RemoveElement {
 			status = nums[i] == val;
 			if (status == true) {
 				do {
-					if (index + 1 < nums.length) {
-
-						System.out.println("i = " + i);
-						System.out.println("Checking index = " + (i + index));
-
-						status = nums[i + index] != val;
+					if (index < nums.length) {
+						status = nums[index] != val;
 						if (status == true) {
-							nums[i] = nums[i + index];
+							nums[i] = nums[index];
+							nums[index] = val;
+							k++;
 							break;
+						} else {
+							index++;
 						}
 					} else
 						break;
-				} while (status);
+				} while (true);
 			} else {
 				k++;
 			}
