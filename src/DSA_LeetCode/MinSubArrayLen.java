@@ -18,7 +18,6 @@ public class MinSubArrayLen {
 				}
 				j++;
 			}
-			
 			len = 0;
 			sum = 0;
 		}
