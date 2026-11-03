@@ -3,7 +3,6 @@ package DSA_LeetCode;
 import java.util.HashMap;
 
 public class ContainsNearbyDuplicate {
-
 	public boolean containsNearbyDuplicate(int[] nums, int k) {
 
 		boolean status = false;
