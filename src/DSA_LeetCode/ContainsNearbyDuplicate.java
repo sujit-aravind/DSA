@@ -3,10 +3,12 @@ package DSA_LeetCode;
 import java.util.HashMap;
 
 public class ContainsNearbyDuplicate {
+	
 	public boolean containsNearbyDuplicate(int[] nums, int k) {
 
 		boolean status = false;
 		int val;
+		
 		HashMap<Integer, Integer> map = new HashMap<>();
 
 		for (int i = 0; i < nums.length; i++) {
