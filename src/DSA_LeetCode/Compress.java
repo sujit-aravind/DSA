@@ -1,28 +1,41 @@
 package DSA_LeetCode;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
 
 public class Compress {
 	public int compress(char[] chars) {
 
-		Map<Character, Integer> map = new HashMap<>();
+		int count = 0;
+		int index = 0;
+		String s = "";
 
 		for (int i = 0; i < chars.length; i++) {
-			if (map.containsKey(chars[i]))
-				map.put(chars[i], map.get(chars[i]) + 1);
-			else
-				map.put(chars[i], 1);
-		}
-		
-		String s = "";
-		
-		for (Map.Entry<Character, Integer> entry : map.entrySet()) {
-			char ch = entry.getKey();
+			char ch = chars[i];
 			s += ch;
-			int frequency = entry.getValue();
-			s += frequency;
+			for (int j = i + 1; j < chars.length; j++) {
+				if (ch != chars[j])
+					break;
+				if (count == 0)
+					count++;
+				count++;
+				index = j;
+			}
+			if (count != 0)
+				s += count;
+			i = index;
+			count = 0;
+		}
+		for (int i = 0; i < s.length(); i++) {
+			chars[i] = s.charAt(i);
 		}
 		return s.length();
-	}	
+	}
+
+	public static void main(String[] args) {
+		char[] chars = { 'a', 'b', 'b', 'c' };
+		Compress obj = new Compress();
+		int result = obj.compress(chars);
+		System.out.println("Compressed Length: " + result);
+		System.out.println("Compressed Array: " + Arrays.toString(chars));
+	}
 }
