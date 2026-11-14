@@ -22,6 +22,8 @@ public class Compress {
 			}
 			if (count != 0)
 				s += count;
+			else
+				continue;
 			i = index;
 			count = 0;
 		}
